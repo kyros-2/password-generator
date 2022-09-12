@@ -1,0 +1,182 @@
+@font-face{
+    src: url(JosefinSans-VariableFont_wght.ttf);
+    font-family: JosefinSans;
+}
+@font-face{
+    src: url(SpaceMono-Regular.ttf);
+    font-family: SpaceMono;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: JosefinSans;
+}
+
+/* centre */
+body, div.container, .container .passLen, .passVal label, .container .passLen input::before{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button#copyBtn, button#genBtn, div.passVal label, div.passVal label input{
+    user-select: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+body{
+    min-height: 100vh;
+    background: #dadada ;
+    overflow: hidden;
+}
+
+div.container{
+    width: calc(350px + 1vw);
+    padding: 20px 15px;
+    border-radius: 15px;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    gap: 10px;
+}
+
+.container h2{
+    font-size: 30px;
+}
+
+.container .passLen{
+    width: 90%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.container .passLen input{
+    position: relative;
+    width: 100%;
+}
+
+.container .passLen input::before{
+    content: attr(data-str);
+    position: absolute;
+    right: 0;
+    top: -20px;
+    font-weight: 600;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.container .passVal{
+    width: 90%;
+    height: 110px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.passVal .choixLab{
+    padding-top: 4px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    border: 2px solid #949494;
+    color: #949494;
+}
+
+.passVal label input{
+    display: none;
+}
+
+button#genBtn{
+    padding: 15px 20px;
+    background: #2682fa;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 8px;
+}
+
+div.outPut{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+input#password{    
+    position: absolute;
+    font-family: SpaceMono;
+    background: rgb(221, 221, 221);
+    pointer-events: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 17px;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+input#password::selection{
+    display: none;
+}
+
+button#copyBtn{
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1;
+    right: 0;
+    background-color: #2682fa;
+    color: white;
+    font-size: 20px;
+}
+
+#copiedMessage{
+    padding: 15px 20px;
+    display: inline-block;
+    background: rgba(0, 74, 184, 0.452);
+    border: 2px rgb(11, 40, 83) solid;
+    color: rgb(26, 60, 104);
+    font-size: 18px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    animation: message 3s linear forwards;
+}
+
+@keyframes message{
+    0%{
+        opacity: 0;
+        transform: translateX(200px);
+    }    
+    10%, 90%{
+        opacity: 1;
+        transform: translateX(0);
+        
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(200px);
+    }
+}
+
+label.checkboxActive{
+    color: #4848e7 !important;
+    border: 2px solid #4848e7 !important;
+    box-shadow: 0 0 15px #4848e76c;
+}
+
+.disabled{
+    opacity: .8 !important;
+    pointer-events: none !important;
+}
